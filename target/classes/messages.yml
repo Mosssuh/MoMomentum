@@ -1,0 +1,8 @@
+BOOSTERS:
+  - '&b&lMOMENTUM BOOSTERS'
+  - '&r'
+  - '&7Experience: &f%momomentum_total_boost_personal_minecraft_experience%'
+  - '&aTokens: &f%momomentum_total_boost_personal_edprison_tokens%'
+  - '&dMobCoins: &f%momomentum_total_boost_personal_quadrexmobcoins_mobcoins%'
+  - ''
+NO_PERMISSION: '&8[&bMoMomentum&8] &cYou don''t have permission!'

@@ -1,0 +1,20 @@
+Config:
+  time-format:
+    year: 'y'
+    month: 'm'
+    week: 'w'
+    day: 'd'
+    hour: 'h'
+    minute: 'm'
+    second: 's'
+  player-leave-execute-reduced-actions: true # The reduced actions will be executed when player leaves, when server closes or when a level is reduced
+  player-time-to-avoid-momentum-restart: 300 # It is the time the player has to reconnect and not lose the active momentum. Time in seconds.
+  save-in-database-interval: 300
+  momentum-event: BlockBreak
+  max-level-cost: 2500
+  amount-to-subtract: 5
+  subtract-every: 2
+  starts-subtracting-at: 60
+  update-boss-bar-every: 5
+  boss-bar-default: '&e&lMomentum'
+Levels:

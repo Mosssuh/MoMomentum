@@ -1,0 +1,58 @@
+Levels:
+  Level-1:
+    level: 1
+    cost: 100
+    boss-bar-text: '&b&lLevel 1: &a+5% Experience Booster'
+    actions:
+      completed:
+        Action1:
+          rewards:
+            - '[CHANCE -> 100] MESSAGE -> &b&lLEVEL 1! &a+5% Experience Booster'
+      reduced:
+        Action1:
+          rewards:
+            - '[CHANCE -> 100] MESSAGE -> &b&lLEVEL 1! &c-5% Experience Booster'
+    boosters:
+      Experience:
+        type: Personal
+        applicator: Minecraft
+        boosted: experience
+        boost: 0.05
+  Level-2:
+    level: 2
+    cost: 100
+    boss-bar-text: '&b&lLevel 2: &a+5% Tokens Booster'
+    actions:
+      completed:
+        Action1:
+          rewards:
+            - '[CHANCE -> 100] MESSAGE -> &b&lLEVEL 2! &a+5% Tokens Booster'
+      reduced:
+        Action1:
+          rewards:
+            - '[CHANCE -> 100] MESSAGE -> &b&lLEVEL 2! &c-5% Tokens Booster'
+    boosters:
+      Tokens:
+        type: Personal
+        applicator: EdPrison
+        boosted: tokens
+        boost: 0.05
+  Level-3:
+    level: 3
+    cost: 1000
+    boss-bar-text: '&b&lLevel 3: &a+5% MobCoins Booster'
+    actions:
+      completed:
+        Action1:
+          rewards:
+            - '[CHANCE -> 100] MESSAGE -> &b&lLEVEL 3! &a+5% MobCoins Booster'
+      reduced:
+        Action1:
+          rewards:
+            - '[CHANCE -> 100] MESSAGE -> &b&lLEVEL 3! &c-5% MobCoins Booster'
+    boosters:
+      MobCoins:
+        type: Personal
+        applicator: QuadrexMobCoins
+        boosted: mobcoins
+        boost: 0.05

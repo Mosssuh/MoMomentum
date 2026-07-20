@@ -1,0 +1,127 @@
+API:
+  API Class: MomentumAPI
+  Events:
+    - 'MomentumCompletedLevelEvent'
+    - 'MomentumReducedLevelEvent'
+
+Required Plugins:
+  - 'MoCore'
+  - 'MoBoosters'
+
+Optional Plugins:
+  - 'EdPrison'
+  - 'RivalHarvesterHoes'
+  - 'Blockify'
+
+Commands:
+  - '/momomentum boosters'
+  - '/momomentum reload'
+
+PlaceholderAPI Placeholders:
+  - '%momomentum_cost_<level>%' # Config
+  - '%momomentum_bossbar_message_<level>%' # Config
+  - '%momomentum_boost_<level>_<booster type>_<applicator type>_<boosted>%' # Config
+
+  - '%momomentum_actual_level%'
+  - '%momomentum_actual_cost%'
+  - '%momomentum_actual_bossbar_message%'
+  - '%momomentum_actual_boost_<booster type>_<applicator>_<boosted>%'
+  - '%momomentum_actual_time_formatted%'
+  - '%momomentum_actual_time%'
+
+  - '%momomentum_highest_time_formatted%'
+  - '%momomentum_highest_time%'
+
+  - '%momomentum_total_boost_<booster type>_<applicator>_<boosted>%'
+
+MomentumEvents:
+  - 'BlockBreak'
+  - 'EdPrisonBlockBreak (EdPrison, external plugin)'
+  - 'RivalBlockBreak (RivalHarvesterHoes, external plugin)'
+  - 'BlockifyBlockBreak (Blockify, external plugin)'
+
+
+Variables:
+  Player:
+    - '%player%'
+  MomentumPlayer:
+    - '%amount%'
+    - '%actual_level%'
+    - '%actual_cost%'
+    - '%actual_message%'
+    - '%next_level%'
+    - '%next_cost%'
+    - '%next_message%'
+
+
+ChanceTypes:
+  - CHANCE
+RequirementTypes:
+  - EVAL
+RewardTypes:
+  # Support PlaceholderAPI, Player, MomentumPlayer
+  # Rewards can support multiple rewards or execute randomly, and you can execute it to your target
+  - 'CONSOLE_COMMAND | Format: CONSOLE_COMMAND -> <command>'
+  - 'PLAYER_COMMAND | Format: PLAYER_COMMAND -> <command>'
+  - 'PLAYER_COMMAND_AS_OP | Format: PLAYER_COMMAND_AS_OP -> <command>'
+  - 'TITLE | Format: TITLE -> <title>::<subtitle>'
+  - 'SOUND | Format: SOUND -> <sound>::<volume>::<pitch>'
+  - 'BROADCAST_MESSAGE | Format: BROADCAST_MESSAGE -> <message>'
+  - 'BROADCAST_TITLE | Format: BROADCAST_TITLE -> <title>::<subtitle>'
+  - 'JSON | Format: JSON -> <json>'
+  - 'JSON_BROADCAST | Format: JSON_BROADCAST -> <json>'
+  - 'EFFECT | Format: EFFECT -> <effect>::<duration>::<amplifier>'
+  - 'EXECUTE_ACTION | Format: EXECUTE_ACTION -> <action>' # You can execute other default actions of the same item.
+
+
+Levels:
+  Level-1:
+    level: integer level
+    cost: double cost
+    boss-bar-text: 'Message'
+    actions:
+      completed:
+        <reward section name>:
+          cancel_action: <true/false>
+          requirements:
+            # Available requirements support PlaceholderAPI, Player Variables and MomentumPlayer Variables
+            # For EVAL you can use:
+            #     Separate requirements: ||
+            #     Strings: equals, !equals, equalsIgnoreCase, !equalsIgnoreCase, startsWith, !startsWith, contains, !contains'
+            #     Numbers: <=, <, >=, >, ==, !=
+            - '[<requirement type>] requirement || requirement2 || requirement3'
+          rewards:
+            - '[<chance type>] -> <chance>] <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward> || <reward type> -> <reward>'
+          else:
+            # Else rewards are executed when the requirements aren't met
+            - '[<chance type>] -> <chance>] <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward> || <reward type> -> <reward>'
+      reduced:
+        <reward section name>:
+          cancel_action: <true/false>
+          requirements:
+            # Available requirements support PlaceholderAPI, Player Variables and MomentumPlayer Variables
+            # For EVAL you can use:
+            #     Separate requirements: ||
+            #     Strings: equals, !equals, equalsIgnoreCase, !equalsIgnoreCase, startsWith, !startsWith, contains, !contains'
+            #     Numbers: <=, <, >=, >, ==, !=
+            - '[<requirement type>] requirement || requirement2 || requirement3'
+          rewards:
+            - '[<chance type>] -> <chance>] <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward> || <reward type> -> <reward>'
+          else:
+            # Else rewards are executed when the requirements aren't met
+            - '[<chance type>] -> <chance>] <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward>'
+            - '[<chance type>] -> <chance>] <reward type> -> <reward> && <reward type> -> <reward> || <reward type> -> <reward>'
+    # To use boosters you need to have vBoosters
+    boosters:
+      <booster name>:
+        type: Booster Type
+        applicator: Applicator Type
+        boosted: Boosted Types
+        boost: double boost

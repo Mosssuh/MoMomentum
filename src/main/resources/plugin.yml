@@ -1,0 +1,18 @@
+name: MoMomentum
+version: '${project.version}'
+main: mv.mossuh.momomentum.MoMomentum
+api-version: '1.13'
+
+depend:
+  - MoCore
+  - MoBoosters
+
+softdepend:
+  - PlaceholderAPI
+
+
+commands:
+  momomentum:
+    description: MoMomentum Commands
+    aliases:
+      - momomentum
