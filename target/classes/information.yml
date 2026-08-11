@@ -8,11 +8,6 @@ Required Plugins:
   - 'MoCore'
   - 'MoBoosters'
 
-Optional Plugins:
-  - 'EdPrison'
-  - 'RivalHarvesterHoes'
-  - 'Blockify'
-
 Commands:
   - '/momomentum boosters'
   - '/momomentum reload'
@@ -36,10 +31,6 @@ PlaceholderAPI Placeholders:
 
 MomentumEvents:
   - 'BlockBreak'
-  - 'EdPrisonBlockBreak (EdPrison, external plugin)'
-  - 'RivalBlockBreak (RivalHarvesterHoes, external plugin)'
-  - 'BlockifyBlockBreak (Blockify, external plugin)'
-
 
 Variables:
   Player:

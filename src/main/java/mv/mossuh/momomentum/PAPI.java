@@ -144,7 +144,7 @@ public class PAPI extends PlaceholderExpansion {
             if (stringSplit.length == 4) {
                 int levelInteger = Integer.parseInt(stringSplit[0]);
                 BoosterType boosterType = UtilMethods.getBoosterType(stringSplit[1]);
-                ApplicatorType applicatorType = UtilMethods.getApplicatorType(stringSplit[2]);
+                ApplicatorType applicatorType = ApplicatorType.convert(stringSplit[2]);
                 String boosted = stringSplit[3];
 
                 Level level = ConfigLevels.getLevel(levelInteger);
@@ -182,7 +182,7 @@ public class PAPI extends PlaceholderExpansion {
             String[] stringSplit = identifier.replaceAll(" ", "").replace("actual_boost_", "").split("_", 3);
             if (stringSplit.length == 3) {
                 BoosterType boosterType = UtilMethods.getBoosterType(stringSplit[0]);
-                ApplicatorType applicatorType = UtilMethods.getApplicatorType(stringSplit[1]);
+                ApplicatorType applicatorType = ApplicatorType.convert(stringSplit[1]);
                 String boosted = stringSplit[2];
 
                 Level level = momentumPlayer.getActualLevel();
@@ -207,7 +207,7 @@ public class PAPI extends PlaceholderExpansion {
             String[] stringSplit = identifier.replaceAll(" ", "").replace("total_boost_", "").split("_", 3);
             if (stringSplit.length == 3) {
                 BoosterType boosterType = UtilMethods.getBoosterType(stringSplit[0]);
-                ApplicatorType applicatorType = UtilMethods.getApplicatorType(stringSplit[1]);
+                ApplicatorType applicatorType = ApplicatorType.convert(stringSplit[1]);
                 String boosted = stringSplit[2];
 
                 BoosterIdentifier boosterIdentifier = new BoosterIdentifier(Config.PLUGIN_NAME, boosterType, applicatorType, boosted);

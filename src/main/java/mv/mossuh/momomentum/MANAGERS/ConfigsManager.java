@@ -122,7 +122,7 @@ public class ConfigsManager {
                     if (PluginsChecker.isPluginEnabled(PluginType.MoBoosters)) {
                         for (String boosterSection : config.getConfigurationSection("Levels." + section + ".boosters").getKeys(false)) {
                             BoosterType boosterType = UtilMethods.getBoosterType(config.getString("Levels." + section + ".boosters." + boosterSection + ".type"));
-                            ApplicatorType applicatorType = UtilMethods.getApplicatorType(config.getString("Levels." + section + ".boosters." + boosterSection + ".applicator"));
+                            ApplicatorType applicatorType = ApplicatorType.convert(config.getString("Levels." + section + ".boosters." + boosterSection + ".applicator"));
                             String boosted = config.getString("Levels." + section + ".boosters." + boosterSection + ".boosted");
                             Double boost = config.getDouble("Levels." + section + ".boosters." + boosterSection + ".boost");
 
