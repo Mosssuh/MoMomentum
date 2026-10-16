@@ -135,8 +135,8 @@ public class PAPI extends PlaceholderExpansion {
             int levelInteger = Integer.parseInt(levelString);
             Level level = ConfigLevels.getLevel(levelInteger);
             if (level.isValid()) {
-                return UtilString.get(level.getBossBarText()).hex().setPlaceholders(player).setPlaceholders(player).setDefaultPlayerVariables(player).setDefaultLevelVariables(level)
-                        .setDefaultNumberRandomVariable().setTimeFormatter().setMathPlaceholder().setChangeOutputPlaceholder().apply();
+                return UtilString.get(level.getBossBarText()).setVariables(player).setVariables(level).setPlaceholders(player)
+                        .setTimeFormatter().hex().apply();
             }
         } else if (identifier.toLowerCase().startsWith("boost_")) {
             // %momomentum_boost_<level>_<booster type>_<applicator type>_<boosted>%
@@ -171,8 +171,8 @@ public class PAPI extends PlaceholderExpansion {
             if (momentumPlayer.isPlayer()) {
                 Level level = momentumPlayer.getActualLevel();
                 if (level.isValid()) {
-                    return UtilString.get(level.getBossBarText()).hex().setPlaceholders(player).setPlaceholders(player).setDefaultPlayerVariables(player).setDefaultMomentumPlayerVariables(momentumPlayer)
-                            .setDefaultNumberRandomVariable().setTimeFormatter().setMathPlaceholder().setChangeOutputPlaceholder().apply();
+                    return UtilString.get(level.getBossBarText()).setVariables(player).setVariables(momentumPlayer).setPlaceholders(player)
+                            .setTimeFormatter().hex().apply();
                 }
             }
         } else if (identifier.toLowerCase().startsWith("actual_boost_")) {

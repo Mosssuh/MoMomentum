@@ -23,8 +23,8 @@ public class BoosterCommands {
                 MomentumPlayer momentumPlayer = MomentumAPI.getManager().getPlayer(player.getUniqueId());
 
                 for (String line : boostersMessage) {
-                    UtilString.get(line).hex().setPlaceholders(player).setPlaceholders(player).setDefaultPlayerVariables(player).setDefaultMomentumPlayerVariables(momentumPlayer)
-                            .setDefaultNumberRandomVariable().setTimeFormatter().setMathPlaceholder().setChangeOutputPlaceholder().sendMessage(player);
+                    UtilString.get(line).setVariables(player).setVariables(momentumPlayer).setPlaceholders(player)
+                            .setTimeFormatter().hex().sendMessage(player);
                 }
             }
         }

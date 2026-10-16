@@ -6,7 +6,7 @@
 
     <groupId>mv.mossuh</groupId>
     <artifactId>MoMomentum</artifactId>
-    <version>0.0.1</version>
+    <version>0.0.2-dev.1</version>
     <packaging>jar</packaging>
 
     <name>MoMomentum</name>

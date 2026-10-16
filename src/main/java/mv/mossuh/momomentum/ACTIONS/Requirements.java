@@ -82,9 +82,8 @@ public class Requirements {
                             if (moRequirement.isRequirement(RequirementType.EVAL)) {
                                 RequirementEval requirement = (RequirementEval) moRequirement.getRequirement();
                                 for (String eval : requirement.getRequirements()) {
-                                    boolean condition = UtilString.get(eval).hex().setVariables(variables)
-                                            .setDefaultNumberRandomVariable().setPlaceholders(uuid).setChangeOutputPlaceholder().setMathPlaceholder()
-                                            .setTimeFormatter().evaluateString();
+                                    boolean condition = UtilString.get(eval).setVariables(variables)
+                                            .setPlaceholders(uuid).setTimeFormatter().hex().evaluateString();
                                     if (condition) {
                                         requirementsAccepted = requirementsAccepted + 1;
                                         break;

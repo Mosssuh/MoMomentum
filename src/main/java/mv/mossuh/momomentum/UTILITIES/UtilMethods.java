@@ -9,8 +9,7 @@ import java.util.UUID;
 public class UtilMethods {
 
     public static double transformChance(UUID uuid, String chance) {
-        chance = UtilString.get(chance).setDefaultNumberRandomVariable().setChangeOutputPlaceholder().setMathPlaceholder()
-                .setTimeFormatter().setPlaceholders(uuid).apply();
+        chance = UtilString.get(chance).setPlaceholders(uuid).setTimeFormatter().apply();
         double chanceFormat = 100 * 100;
         if (UtilString.get(chance).isNumeric()) {
             chanceFormat = Double.parseDouble(chance) * 100;

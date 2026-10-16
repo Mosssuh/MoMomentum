@@ -98,8 +98,8 @@ public class Rewards {
                                     String reward = null;
                                     if (rewardReceiverType.equals(RewardReceiverType.PLACEHOLDER)) {
                                         if (rewardReceiver.hasRewardReceiver()) {
-                                            String rewardReceiverString = UtilString.get(rewardReceiver.getRewardReceiver()).setDefaultNumberRandomVariable().setVariables(variables)
-                                                    .setPlaceholders(uuid).setChangeOutputPlaceholder().setMathPlaceholder().setTimeFormatter().apply();
+                                            String rewardReceiverString = UtilString.get(rewardReceiver.getRewardReceiver()).setVariables(variables)
+                                                    .setPlaceholders(uuid).setTimeFormatter().apply();
                                             Player rewardPlayer = Bukkit.getPlayer(rewardReceiverString);
                                             if (rewardPlayer != null && rewardPlayer.isOnline()) {
                                                 entityReceiver = rewardPlayer;
@@ -111,9 +111,9 @@ public class Rewards {
                                             entityReceiver = player;
                                         }
                                     }
-                                    reward = UtilString.get(randomSelectedReward.getReward()).hex().setDefaultNumberRandomVariable()
-                                            .setVariables(variables).setPlaceholders(entityReceiver).setChangeOutputPlaceholder().setMathPlaceholder()
-                                            .setTimeFormatter().apply();
+                                    reward = UtilString.get(randomSelectedReward.getReward())
+                                            .setVariables(variables).setPlaceholders(entityReceiver)
+                                            .setTimeFormatter().hex().apply();
 
                                     EntityType entityReceiverType = EntityType.UNKNOWN;
                                     if (entityReceiver != null) {

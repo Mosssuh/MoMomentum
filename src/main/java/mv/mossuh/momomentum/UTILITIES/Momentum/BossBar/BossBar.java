@@ -46,11 +46,11 @@ public class BossBar {
 
                     String message;
                     if (actualLevel == 0) {
-                        message = UtilString.get(Config.BOSS_BAR_DEFAULT).hex().setDefaultPlayerVariables(player).setPlaceholders(player).apply();
+                        message = UtilString.get(Config.BOSS_BAR_DEFAULT).setVariables(player).setPlaceholders(player).hex().apply();
                     } else {
-                        message = UtilString.get(actualLevelInformation.getBossBarText()).hex().setDefaultPlayerVariables(player).setPlaceholders(player).apply();
+                        message = UtilString.get(actualLevelInformation.getBossBarText()).setVariables(player).setPlaceholders(player).hex().apply();
                     }
-                    message = UtilString.get(message).setDefaultMomentumPlayerVariables(momentumPlayer).apply();
+                    message = UtilString.get(message).setVariables(momentumPlayer).apply();
 
                     boss.setTitle(message);
                     boss.setPercentage(progress);
@@ -59,8 +59,8 @@ public class BossBar {
                     double cost = actualLevelInformation.getCost();
                     float progress = (float) (amountObtained / cost);
 
-                    String message = UtilString.get(actualLevelInformation.getBossBarText()).hex().setPlaceholders(player).setDefaultPlayerVariables(player)
-                            .setDefaultMomentumPlayerVariables(momentumPlayer).apply();
+                    String message = UtilString.get(actualLevelInformation.getBossBarText()).setVariables(player).setVariables(momentumPlayer).setPlaceholders(player)
+                            .hex().apply();
 
                     boss.setTitle(message);
                     boss.setPercentage(progress);
